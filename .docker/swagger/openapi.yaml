@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Sistema de Gerenciamento de Finanças API
-    description: API para testar operações CRUD básicas
+  description: API para testar operações CRUD básicas
   version: 1.0.0
 
 servers:
@@ -15,7 +15,7 @@ tags:
     description: Operações de CRUD para categorias
 
 paths:
-  /transacoes:
+  /api/financeiro/transacao/listar/todos:
     get:
       tags:
         - transacoes
@@ -29,6 +29,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Transacao'
+
+  /api/financeiro/transacao/cadastrar:
     post:
       tags:
         - transacoes
@@ -43,7 +45,7 @@ paths:
         '201':
           description: Transação criada
 
-  /transacoes/{id}:
+  /api/financeiro/transacao/listar/{id}:
     get:
       tags:
         - transacoes
@@ -58,6 +60,8 @@ paths:
       responses:
         '200':
           description: Detalhes da transação
+
+  /api/financeiro/transacao/editar/{id}:
     put:
       tags:
         - transacoes
@@ -78,6 +82,8 @@ paths:
       responses:
         '200':
           description: Transação atualizada
+
+  /api/financeiro/transacao/excluir/{id}:
     delete:
       tags:
         - transacoes
@@ -93,78 +99,6 @@ paths:
         '204':
           description: Transação removida
 
-  /categorias:
-    get:
-      tags:
-        - categorias
-      summary: Listar todas as categorias
-      responses:
-        '200':
-          description: Lista de categorias
-    post:
-      tags:
-        - categorias
-      summary: Criar uma nova categoria
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CategoriaInput'
-      responses:
-        '201':
-          description: Categoria criada
-
-  /categorias/{id}:
-    get:
-      tags:
-        - categorias
-      summary: Obter detalhes de uma categoria
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID da categoria
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: Detalhes da categoria
-    put:
-      tags:
-        - categorias
-      summary: Atualizar uma categoria
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID da categoria
-          schema:
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CategoriaInput'
-      responses:
-        '200':
-          description: Categoria atualizada
-    delete:
-      tags:
-        - categorias
-      summary: Remover uma categoria
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: ID da categoria
-          schema:
-            type: integer
-      responses:
-        '204':
-          description: Categoria removida
-
 components:
   schemas:
     Transacao:
@@ -172,22 +106,27 @@ components:
       properties:
         id:
           type: integer
-        descricao:
+        tipo:
           type: string
+          enum: [receita, despesa]
+        categoria:
+          type: string
+        descricao:
+          type: text
         valor:
           type: number
         data:
           type: string
           format: date
-        tipo:
-          type: string
-          enum: [receita, despesa]
-        categoria_id:
-          type: integer
     
     TransacaoInput:
       type: object
       properties:
+        tipo:
+          type: string
+          enum: [receita, despesa]
+        categoria:
+          type: string
         descricao:
           type: string
         valor:
@@ -195,37 +134,8 @@ components:
         data:
           type: string
           format: date
-        tipo:
-          type: string
-          enum: [receita, despesa]
-        categoria_id:
-          type: integer
       required:
-        - descricao
         - valor
         - data
         - tipo
-        - categoria_id
-    
-    Categoria:
-      type: object
-      properties:
-        id:
-          type: integer
-        nome:
-          type: string
-        tipo:
-          type: string
-          enum: [receita, despesa]
-    
-    CategoriaInput:
-      type: object
-      properties:
-        nome:
-          type: string
-        tipo:
-          type: string
-          enum: [receita, despesa]
-      required:
-        - nome
-        - tipo
+        - categoria
