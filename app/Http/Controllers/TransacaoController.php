@@ -15,9 +15,14 @@ class TransacaoController extends Controller
         ], 200);
 
     }
+
     public function store(Request $request) {
+        $transacao = Transacao::create($request->all());
+
         return response()->json([
-            'message' => 'Transação criada com sucesso'
+            'message' => 'Transação criada com sucesso',
+            'transacao' => $transacao
         ], 201);
     }
+
 }
