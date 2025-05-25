@@ -1,5 +1,11 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
+# Imagens
+
+![Imagem da aplicação](imagens/swagger01.png)
+![Imagem da aplicação](imagens/swagger02.png)
+<!-- Substitua o caminho acima pelo caminho real da sua imagem -->
+
 # Tecnologias
 - Laravel v12.x
 - PHP v8.4.x
@@ -22,12 +28,6 @@ Essa aplicação é dedicar para um construção de uma API que realizar operaç
 - `docker compose up -d --build`
 - `docker compose exec -it [container] bash`
 
-# Imagens
-
-![Imagem da aplicação](imagens/swagger01.png)
-![Imagem da aplicação](imagens/swagger02.png)
-<!-- Substitua o caminho acima pelo caminho real da sua imagem -->
-
 ### Laravel App
 - URL: http://localhost
 
@@ -39,27 +39,27 @@ Essa aplicação é dedicar para um construção de uma API que realizar operaç
 
 ### Adminer
 - URL: http://localhost:9090
-- Server: `db`
-- Username: `refactorian`
-- Password: `refactorian`
-- Database: `refactorian`
+- Servidor: `db`
+- Usuário: `laravel`
+- Senha: `secret`
+- Banco de Dados: `laravel`
 
-### Basic docker compose commands
-- Build or rebuild services
+### Comandos básicos docker
+- Construir ou reconstruir serviços
     - `docker compose build`
-- Create and start containers
+- Criar e iniciar contêineres
     - `docker compose up -d`
-- Stop and remove containers, networks
+- Parar e remover contêineres, redes
     - `docker compose down`
-- Stop all services
+- Parar todos os serviços
     - `docker compose stop`
-- Restart service containers
+- Reiniciar contêineres de serviço
     - `docker compose restart`
-- Run a command inside a container
+- Executar um comando dentro de um contêiner
     - `docker compose exec [container] [command]`
 
-### Useful Laravel Commands
-- Display basic information about your application
+### Comandos artisan
+- Exibir informações básicas sobre sua aplicação
     - `php artisan about`
 - Remover o arquivo de cache de configuração
     - `php artisan config:clear`
