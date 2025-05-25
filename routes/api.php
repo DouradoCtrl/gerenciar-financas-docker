@@ -5,6 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransacaoController;
 
 
-Route::get('financeiro/listar/todos', [TransacaoController::class, 'index']);
+Route::get('financeiro/transacao/listar', [TransacaoController::class, 'index']);
 
-Route::post('financeiro/adicionar/despesa', [TransacaoController::class, 'store']);
+Route::post('financeiro/transacao/adicionar', [TransacaoController::class, 'store']);
