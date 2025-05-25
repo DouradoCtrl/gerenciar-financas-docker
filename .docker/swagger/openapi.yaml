@@ -11,8 +11,6 @@ servers:
 tags:
   - name: transacoes
     description: Operações de CRUD para transações
-  - name: categorias
-    description: Operações de CRUD para categorias
 
 paths:
   /api/financeiro/transacao/listar/todos:
