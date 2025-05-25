@@ -38,9 +38,9 @@ services:
             - .docker/db/sql:/docker-entrypoint-initdb.d
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: refactorian
-            MYSQL_USER: refactorian
-            MYSQL_PASSWORD: refactorian
+            MYSQL_DATABASE: laravel
+            MYSQL_USER: laravel
+            MYSQL_PASSWORD: secret
 
     ####################################################################################################
     # phpMyAdmin
@@ -87,6 +87,24 @@ services:
         - .docker/redis/data:/data
         ports:
         - 6379:6379
+
+    ####################################################################################################
+    # Swagger UI
+    ####################################################################################################
+    swagger:
+        image: swaggerapi/swagger-ui
+        ports:
+            - 8090:8080
+        volumes:
+            - ./.docker/swagger:/usr/share/nginx/html/api
+        environment:
+            - SWAGGER_JSON=/usr/share/nginx/html/api/openapi.yaml
+            # Ou use a URL para um arquivo remoto
+            # - API_URL=http://localhost/api/openapi.json
+        depends_on:
+            - php
+            - nginx
+
 
     # ####################################################################################################
     # # DATABASE (MariaDB)
