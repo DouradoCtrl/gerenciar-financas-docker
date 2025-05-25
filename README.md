@@ -18,7 +18,9 @@
 - Docker
 
 # Descrição
-Essa aplicação é dedicar para um construção de uma API que realizar operações básicas de CRUD como: Atualizar, Remover, Criar e Deletar. Além de realizar uma consulta individual de cada registro.
+Esta aplicação é destinada à construção de uma API que realiza operações básicas de CRUD (Create, Read, Update, Delete), possibilitando a criação, atualização, remoção e exclusão de registros. Adicionalmente, a API permite a consulta individualizada de cada registro no sistema.
+
+A API consiste em um sistema de gerenciamento financeiro, com capacidade para categorizar diferentes tipos de transações, sejam elas receitas ou despesas.
 
 # Como instalar
 **Obs:** Como pré-requisito precisa de ter o docker e docker compose instalado.
