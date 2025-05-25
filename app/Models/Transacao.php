@@ -10,5 +10,5 @@ class Transacao extends Model
     use HasFactory;
     protected $table = "transacao";
     protected $fillable = ['tipo', 'categoria', 'valor', 'descricao', 'data'];
-    public $timestamp = false;
+    public $timestamps = false;
 }
